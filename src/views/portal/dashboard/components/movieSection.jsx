@@ -1,8 +1,30 @@
-import React from "react";
-import MovieCard from "../card/movieCard";
-import { movieList } from "../../views/variables";
+import React, {useState, useEffect, useCallback} from "react";
+import MovieCard from "../../../../components/card/movieCard";
+import { SERVER_URL } from "../../../../variables/variable";
+import { movieLists } from "../../../variables";
+
 
 function MovieSectionDashboard(){
+    const [movieList, setMovieList] = useState(movieLists);
+    const getData = useCallback(async()=>{
+        try{
+            const response = await fetch(`${SERVER_URL}/dashboard.php`, {
+                method: 'GET'
+            });
+            const res = await response.json();
+            const data = JSON.parse(res.body);
+            console.log(data.movies);
+            if (data.message === 'Ok'){
+                setMovieList(data.movies);
+            }
+        }catch(e){
+            console.log(e);
+        }
+    },[]);
+    useEffect(()=>{
+        getData();
+    },[getData]);
+  
     return (
         <section className="movie-section padding-top padding-bottom">
             <div className="container">
@@ -19,30 +41,20 @@ function MovieSectionDashboard(){
                             <li>
                                 coming soon
                             </li>
-                            <li>
-                                exclusive
-                            </li>
                         </ul>
                     </div>
                     <div className="tab-area mb-30-none">
                         <div className="tab-item active">
                             <div className="owl-carousel owl-theme tab-slider">
-                                {movieList.map((item)=>{
-                                    return <MovieCard movie = {item} />
+                                {movieList.map((item, index)=>{
+                                    return <MovieCard key={index} movie = {item} />
                                 })}
                             </div>
                         </div>
                         <div className="tab-item">
                             <div className="owl-carousel owl-theme tab-slider">
-                                {movieList.map((item)=>{
-                                    return <MovieCard movie = {item} />
-                                })}
-                            </div>
-                        </div>
-                        <div className="tab-item">
-                            <div className="owl-carousel owl-theme tab-slider">
-                                {movieList.map((item)=>{
-                                    return <MovieCard movie = {item} />
+                                {movieList.map((item, index)=>{
+                                    return <MovieCard key={index} movie = {item} />
                                 })}
                             </div>
                         </div>

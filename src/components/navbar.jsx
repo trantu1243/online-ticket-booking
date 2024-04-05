@@ -1,6 +1,31 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
+import { logOut } from "../views/auth/auth.slice";
 
 function Navbar(){
+    const [checkSignIn, setCheckSignIn] = useState(false);
+    const [active, setActive] = useState(1);
+    const token = useSelector(state => state.auth.token);
+    const username = useSelector(state => state.auth.username);
+    const dispatch = useDispatch();
+    const location = useLocation();
+    useEffect(()=>{
+        if(location.pathname==='/portal/dashboard') setActive(1);
+        else if(location.pathname==='/portal/movie-list') setActive(2);
+        else setActive(0);      
+    }, [location]);
+
+    useEffect(()=>{
+        if (token && username) setCheckSignIn(true);
+        else setCheckSignIn(false);
+    }, [token, username]);
+
+    function handleLogOut(e){
+        e.preventDefault();
+        dispatch(logOut());
+        window.location.reload();
+    }
     return (
         <>
         <div className="preloader">
@@ -20,23 +45,31 @@ function Navbar(){
             <div className="container">
                 <div className="header-wrapper">
                     <div className="logo">
-                        <a href="index.html">
+                        <a href="/portal/dashboard">
                             <img src="/assets/images/logo/logo.png" alt="logo" />
                         </a>
                     </div>
                     <ul className="menu">
                         <li>
-                            <a href="/portal/dashboard" className="active">Home</a>
+                            <a href="/portal/dashboard" className={active===1 ? "active":""}>Home</a>
                         </li>
                         <li>
-                            <a href="/portal/movie-list">movies</a>
+                            <a href="/portal/movie-list" className={active===2 ? "active":""}>movies</a>
                         </li>
                         <li>
                             <a href="#0">contact</a>
                         </li>
-                        <li class="menu-item-has-children open">
+                        <li className="menu-item-has-children open">
                             <a href="#0">pages</a>
-                            <ul class="submenu">
+                            {
+                            checkSignIn ? <ul className="submenu">
+                                <li>
+                                    <a href="#0" onClick={(e)=>{e.preventDefault()}}>{username}</a>
+                                </li>
+                                <li>
+                                    <a href="#0" onClick={handleLogOut}>Log out</a>
+                                </li>
+                            </ul> : <ul className="submenu">
                                 <li>
                                     <a href="/auth/sign-in">Sign In</a>
                                 </li>
@@ -44,9 +77,10 @@ function Navbar(){
                                     <a href="/auth/sign-up">Sign Up</a>
                                 </li>
                             </ul>
+                            }
                         </li>
                         <li className="header-button pr-0">
-                            <a href="/auth/sign-up">join us</a>
+                            <a href="#0" onClick={(e)=>{e.preventDefault()}}>Join us</a>
                         </li>
                     </ul>
                     <div className="header-bar d-lg-none">

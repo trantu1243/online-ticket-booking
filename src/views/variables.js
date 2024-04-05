@@ -20,30 +20,62 @@ const formList = [
     }
 ]
 
-const movieList = [
+const movieLists = [
     {
-        name: 'alone',
-        img: '/assets/images/movie/movie01.jpg',
-        tomatoPoint: '88%',
-        cakePoint: '88%'
+        description: "Đi qua những đau khổ và phản bội, mối tình đơn phương của Ngạn dành cho cô bạn thân thời thơ ấu Hà Lan kéo dài cả một thế hệ trong bộ phim siêu lãng mạn này.",
+        duration:117,
+        genre: "Lãng mạn",
+        image: "http://localhost/online-ticket-booking/image/mat_biec.jpg",
+        movieID: 100000000,
+        name: "Mắt biếc",
+        photo: null,
+        poster: "/assets/images/movie/mat_biec_poster.jpg",
+        releaseDate: "2019-12-20",
+        status: 1,
+        tomatoPoint: 69,
+        videoUrl: "https://youtu.be/ITlQ0oU7tDA?si=fcAdCZhY7QD72gOO"
     },
     {
-        name: 'mars',
-        img: '/assets/images/movie/movie02.jpg',
-        tomatoPoint: '88%',
-        cakePoint: '88%'
+        description: "Lấy bối cảnh trận chiến đông xuân kéo dài 60 ngày đêm từ cuối năm 1946 đến đầu năm 1947 ở Hà Nội, câu chuyện theo chân chàng dân quân Văn Dân và chuyện tình với nàng tiểu thư đam mê dương cầm Thục Hương. Khi những người khác đã di tản lên chiến khu, họ quyết định cố thủ lại mảnh đất thủ đô đã tan hoang vì bom đạn, mặc cho những hiểm nguy đang chờ đợi trước mắt.",
+        duration: 100,
+        genre: "Chiến tranh, Chính kịch",
+        image: "http://localhost/online-ticket-booking/image/dao_pho_piano.jpg",
+        movieID: 100000001,
+        name: "Đào, phở và piano",
+        photo: null,
+        poster: "/assets/images/movie/dao_pho_piano_poster.jpg",
+        releaseDate: "2024-02-22",
+        status: 1,
+        tomatoPoint: 78,
+        videoUrl: "https://youtu.be/qn1t_biQigc?si=GelGe2spBx50NmcU"
     },
     {
-        name: 'venus',
-        img: '/assets/images/movie/movie03.jpg',
-        tomatoPoint: '88%',
-        cakePoint: '88%'
+        description: "Trong phim, Trấn Thành vào vai ông Tư, một tài xế xe ôm quần quật làm việc qua ngày để chăm lo cho gia đình của mình. Mặc dù khá bảo thủ, nóng nảy, thường xuyên quát tháo nhưng thực chất ông Tư lại là một người rất giàu lòng yêu thương, không chỉ với người thân mà còn có hàng xóm, bạn bè xung quanh và thậm chí là cả những người xa lạ.",
+        duration: 128,
+        genre: "Hài, Gia đình",
+        image: "http://localhost/online-ticket-booking/image/Bo-Gia.jpg",
+        movieID: 100000002,
+        name: "Bố già",
+        photo: null,
+        poster: "/assets/images/movie/bo_gia_poster.jpg",
+        releaseDate: "2021-03-05",
+        status: 1,
+        tomatoPoint: 70,
+        videoUrl: "https://youtu.be/g8_DQqqTabk?si=CFL6kAANmNPUFacu"
     },
     {
-        name: 'horror night',
-        img: '/assets/images/movie/movie04.jpg',
-        tomatoPoint: '88%',
-        cakePoint: '88%'
+        description: "Lấy bối cảnh trận chiến đông xuân kéo dài 60 ngày đêm từ cuối năm 1946 đến đầu năm 1947 ở Hà Nội, câu chuyện theo chân chàng dân quân Văn Dân và chuyện tình với nàng tiểu thư đam mê dương cầm Thục Hương. Khi những người khác đã di tản lên chiến khu, họ quyết định cố thủ lại mảnh đất thủ đô đã tan hoang vì bom đạn, mặc cho những hiểm nguy đang chờ đợi trước mắt.",
+        duration: 100,
+        genre: "Chiến tranh, Chính kịch",
+        image: "http://localhost/online-ticket-booking/image/dao_pho_piano.jpg",
+        movieID: 100000001,
+        name: "Đào, phở và piano",
+        photo: null,
+        poster: "/assets/images/movie/dao_pho_piano_poster.jpg",
+        releaseDate: "2024-02-22",
+        status: 1,
+        tomatoPoint: 78,
+        videoUrl: "https://youtu.be/qn1t_biQigc?si=GelGe2spBx50NmcU"
     }
 ]
 
@@ -150,6 +182,6 @@ const movie = {
 
 export {
     formList,
-    movieList,
+    movieLists,
     movie
 }

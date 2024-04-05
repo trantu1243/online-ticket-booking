@@ -8,8 +8,8 @@ function FormCard(props){
             </div>
             <span className="type">{props.data.type}</span>
             <select className="select-bar">
-                {props.data.list.map((item)=>{
-                    return <option value={item}>{item}</option>
+                {props.data.list.map((item, index)=>{
+                    return <option key={index} value={item}>{item}</option>
                 })}
             </select>
         </div>

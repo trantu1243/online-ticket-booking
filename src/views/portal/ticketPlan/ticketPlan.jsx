@@ -1,7 +1,7 @@
 import React from "react";
-import DetailBannerTp from "../../../components/ticketPlanDisplay/detailBanner/detailBanner";
-import BookSectionTp from "../../../components/ticketPlanDisplay/bookSection/bookSectionTp";
-import TicketPlanContainer from "../../../components/ticketPlanDisplay/Container/TicketPlanContainer";
+import DetailBannerTp from "./components/detailBanner";
+import BookSectionTp from "./components/bookSectionTp";
+import TicketPlanContainer from "./components/Container/TicketPlanContainer";
 import { ticketPlan } from "./variables";
 
 

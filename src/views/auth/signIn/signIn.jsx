@@ -1,6 +1,54 @@
-import React from "react";
+import React, {useState} from "react";
+import { useNavigate } from "react-router-dom";
+import { SERVER_URL } from "../../../variables/variable";
+import { useDispatch } from "react-redux";
+import { signIn } from "../auth.slice";
 
 function SignIn(){
+    const [textInput, setInput] = useState({username:"", password:""});
+    const [checkUser, setCheckUser] = useState(true);
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    function handleChange(event){
+        const {name, value} = event.target;
+        setInput(preValue=>{
+            return {...preValue, [name]:value}
+        });
+    }
+
+    async function handleClick(event){
+
+        event.preventDefault();
+
+        try {
+            const formData = new FormData();
+            formData.append('username', textInput.username);
+            formData.append('password', textInput.password);
+            const response = await fetch(`${SERVER_URL}/login.php`, {
+                method: 'POST',
+                body: formData,
+            });
+            const res = await response.json();
+            console.log(res);
+            const data = JSON.parse(res.body);
+            if (data.message === 'Ok'){
+                const token = `Bearer ${data.token}`;
+                localStorage.setItem('token', token);
+                localStorage.setItem('username', data.username);
+                dispatch(signIn({token: token, username: data.username}));
+                navigate('/portal/dashboard');
+                window.location.reload();
+            }
+            else {
+                setCheckUser(false);
+            }
+        } catch (error) {
+            console.error('Error logging in:', error);
+            setCheckUser(false);
+        }
+    }
+
     return (
     <>
         <div className="preloader">
@@ -22,20 +70,36 @@ function SignIn(){
                         </div>
                         <form className="account-form">
                             <div className="form-group">
-                                <label for="email2">Email<span>*</span></label>
-                                <input type="text" placeholder="Enter Your Email" id="email2" required />
+                                <label htmlFor="username">Username<span>*</span></label>
+                                <input placeholder="Enter Your Username" 
+                                    id="username" 
+                                    name="username" 
+                                    type="text" 
+                                    value={textInput.username} 
+                                    onChange={handleChange} 
+                                    required    
+                                />
                             </div>
                             <div className="form-group">
-                                <label for="pass3">Password<span>*</span></label>
-                                <input type="password" placeholder="Password" id="pass3" required />
+                                <label htmlFor="pass3">Password<span>*</span></label>
+                                <input 
+                                    placeholder="Password" 
+                                    id="pass3" 
+                                    name="password" 
+                                    type="password" 
+                                    value={textInput.password} 
+                                    onChange={handleChange} 
+                                    required 
+                                />
                             </div>
                             <div className="form-group checkgroup">
-                                <input type="checkbox" id="bal2" required checked />
-                                <label for="bal2">remember password</label>
+                                <input type="checkbox" id="bal2" required defaultChecked />
+                                <label htmlFor="bal2">remember password</label>
                                 <a href="#0" className="forget-pass">Forget Password</a>
                             </div>
+                            {!checkUser && <p style={{color:"red",margin:"0",padding:"0",width:"100%", textAlign:"left", paddingLeft:"10px"}}>Username or password is incorrect</p>}
                             <div className="form-group text-center">
-                                <input type="submit" value="log in" />
+                                <input type="submit" onClick={handleClick}/>
                             </div>
                         </form>
                         <div className="option">

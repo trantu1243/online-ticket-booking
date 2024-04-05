@@ -1,6 +1,6 @@
 import React from "react";
-import FormCard from "../card/formCard";
-import { formList } from "../../views/variables";
+import FormCard from "../../../../components/card/formCard";
+import { formList } from "../../../variables";
 
 function SearchTicketSection(){
     return (
@@ -22,8 +22,8 @@ function SearchTicketSection(){
                                         <input type="text" placeholder="Search fo Movies" />
                                         <button type="submit"><i className="fas fa-search"></i></button>
                                     </div>
-                                    {formList.map((item)=>{
-                                        return <FormCard data = {item}/>
+                                    {formList.map((item, index)=>{
+                                        return <FormCard key={index} data = {item}/>
                                     })}
                                 </form>
                             </div>

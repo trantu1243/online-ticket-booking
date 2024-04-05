@@ -2,16 +2,15 @@ import React from "react";
 
 function CastCard(props){
     return (
-        <div class="cast-item">
-            <div class="cast-thumb">
+        <div className="cast-item">
+            <div className="cast-thumb">
                 <a href="#0">
-                    <img src={props.cast.img} alt="cast"/>
+                    <img src="/assets/images/cast/Blank-Avatar.png" alt="cast"/>
                 </a>
             </div>
-            <div class="cast-content">
-                <h6 class="cast-title"><a href="#0">{props.cast.name}</a></h6>
-                <span class="cate">{props.cast.cate}</span>
-                <p>As {props.cast.character}</p>
+            <div className="cast-content">
+                <h6 className="cast-title"><a href="#0">{props.name}</a></h6>
+                <span className="cate">Actor</span>
             </div>
         </div>
     )

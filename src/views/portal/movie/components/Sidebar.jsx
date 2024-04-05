@@ -2,8 +2,8 @@ import React from "react";
 
 function Sidebar(){
     return (
-        <div class="col-lg-3 col-sm-10 col-md-6 mb-50">
-            <div class="widget-1 widget-tags">
+        <div className="col-lg-3 col-sm-10 col-md-6 mb-50">
+            <div className="widget-1 widget-tags">
                 <ul>
                     <li>
                         <a href="#0">2D</a>
@@ -16,25 +16,25 @@ function Sidebar(){
                     </li>
                 </ul>
             </div>
-            <div class="widget-1 widget-offer">
-                <h3 class="title">Applicable offer</h3>
-                <div class="offer-body">
-                    <div class="offer-item">
-                        <div class="thumb">
+            <div className="widget-1 widget-offer">
+                <h3 className="title">Applicable offer</h3>
+                <div className="offer-body">
+                    <div className="offer-item">
+                        <div className="thumb">
                             <img src="/assets/images/sidebar/offer01.png" alt="sidebar"/>
                         </div>
-                        <div class="content">
+                        <div className="content">
                             <h6>
                                 <a href="#0">Amazon Pay Cashback Offer</a>
                             </h6>
                             <p>Win Cashback Upto Rs 300*</p>
                         </div>
                     </div>
-                    <div class="offer-item">
-                        <div class="thumb">
+                    <div className="offer-item">
+                        <div className="thumb">
                             <img src="/assets/images/sidebar/offer02.png" alt="sidebar"/>
                         </div>
-                        <div class="content">
+                        <div className="content">
                             <h6>
                                 <a href="#0">PayPal Offer</a>
                             </h6>
@@ -42,11 +42,11 @@ function Sidebar(){
                                 get 100% cashback up to Rs. 500</p>
                         </div>
                     </div>
-                    <div class="offer-item">
-                        <div class="thumb">
+                    <div className="offer-item">
+                        <div className="thumb">
                             <img src="/assets/images/sidebar/offer03.png" alt="sidebar"/>
                         </div>
-                        <div class="content">
+                        <div className="content">
                             <h6>
                                 <a href="#0">HDFC Bank Offer</a>
                             </h6>
@@ -54,13 +54,6 @@ function Sidebar(){
                                 and INR 50* off on F&B T&C apply</p>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="widget-1 widget-banner">
-                <div class="widget-1-body">
-                    <a href="#0">
-                        <img src="/assets/images/sidebar/banner/banner01.jpg" alt="banner"/>
-                    </a>
                 </div>
             </div>
         </div>

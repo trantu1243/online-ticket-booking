@@ -1,8 +1,8 @@
 import React from "react";
-import DetailBannerMs from "../../../components/MovieSeatDisplay/detailBanner/detailBannerMs";
+import DetailBannerMs from "./components/detailBannerMs";
 import { movieSeat } from "./variables";
-import TitleMovieSeat from "../../../components/MovieSeatDisplay/titile/titleMovieSeat";
-import SeatPlanSection from "../../../components/MovieSeatDisplay/seatPlanSection/seatPlanSection";
+import TitleMovieSeat from "./components/titleMovieSeat";
+import SeatPlanSection from "./components/seatPlanSection/seatPlanSection";
 
 function MovieSeat(){
     return (
