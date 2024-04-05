@@ -34,12 +34,13 @@ function SignUp(){
             console.log(res);
             const data = JSON.parse(res.body);
             if (data.message === 'Ok'){
-                const token = `Bearer ${data.token}`;
-                localStorage.setItem('token', `Bearer ${data.token}`);
-                localStorage.setItem('username', data.username);
-                dispatch(signIn({token: token, username: data.username}));
+                // const token = `Bearer ${data.token}`;
+                // localStorage.setItem('token', `Bearer ${data.token}`);
+                // localStorage.setItem('username', data.username);
+                // dispatch(signIn({token: token, username: data.username}));
+                // navigate('/portal/dashboard');
 
-                navigate('/portal/dashboard');
+                navigate('/auth/sign-in');
                 window.location.reload();
             }
             else  if (data.message === 'error') {

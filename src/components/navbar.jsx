@@ -80,7 +80,11 @@ function Navbar(){
                             }
                         </li>
                         <li className="header-button pr-0">
-                            <a href="#0" onClick={(e)=>{e.preventDefault()}}>Join us</a>
+                            {checkSignIn?
+                            <a href="/auth/sign-up" onClick={(e)=>{e.preventDefault()}}>{username}</a>: 
+                            <a href="/auth/sign-up">Join us</a>
+                        }
+                            
                         </li>
                     </ul>
                     <div className="header-bar d-lg-none">
