@@ -1,6 +1,6 @@
 import React from "react";
 import Sidebar from "./Sidebar";
-import CastCard from "../../../../components/card/castCard";
+// import CastCard from "../../../../components/card/castCard";
 
 
 function MovieDetailSection(props){

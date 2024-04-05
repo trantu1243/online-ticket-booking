@@ -37,7 +37,7 @@ function Movie(){
         } catch(e){ 
             console.log(e);
         }
-    }, []);
+    }, [id]);
 
     useEffect(()=>{
         getMovie();
