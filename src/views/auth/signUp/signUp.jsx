@@ -1,15 +1,15 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 import { SERVER_URL } from "../../../variables/variable";
-import { signIn } from "../auth.slice";
+// import { signIn } from "../auth.slice";
 
 function SignUp(){
     const [textInput, setInput] = useState({username:"", email:"", password:"", confirmPassword:""});
     const [errorText, setErrorText] = useState("");
     const [checkUser, setCheckUser] = useState(true);
     const navigate = useNavigate();
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     function handleChange(event){
         const {name, value} = event.target;
         setInput(preValue=>{
@@ -18,8 +18,9 @@ function SignUp(){
     }
 
     async function handleClick(event){
-
+        
         event.preventDefault();
+        console.log("hi");
         try {
             const formData = new FormData();
             formData.append('username', textInput.username);
@@ -39,7 +40,7 @@ function SignUp(){
                 // localStorage.setItem('username', data.username);
                 // dispatch(signIn({token: token, username: data.username}));
                 // navigate('/portal/dashboard');
-
+                alert('You have successfully registered an account.');
                 navigate('/auth/sign-in');
                 window.location.reload();
             }
@@ -83,7 +84,7 @@ function SignUp(){
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="username">Email<span>*</span></label>
+                                    <label htmlFor="email">Email<span>*</span></label>
                                     <input placeholder="Enter Your email" 
                                         id="email" 
                                         name="email" 
@@ -94,9 +95,9 @@ function SignUp(){
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label for="pass1">Password<span>*</span></label>
-                                    <input placeholder="Enter Your Username" 
-                                        id="pass1" 
+                                    <label htmlFor="password">Password<span>*</span></label>
+                                    <input placeholder="Enter Your Password" 
+                                        id="paspasswords1" 
                                         name="password" 
                                         type="password" 
                                         value={textInput.password} 
@@ -105,8 +106,8 @@ function SignUp(){
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label for="pass2">Confirm Password<span>*</span></label>
-                                    <input placeholder="Enter Your Username" 
+                                    <label htmlFor="confirmPassword">Confirm Password<span>*</span></label>
+                                    <input placeholder="Confirm Password" 
                                         id="confirmPassword" 
                                         name="confirmPassword" 
                                         type="password" 
@@ -117,11 +118,11 @@ function SignUp(){
                                 </div>
                                 <div className="form-group checkgroup">
                                     <input type="checkbox" id="bal" required defaultChecked />
-                                    <label for="bal">I agree to the <a href="#0">Terms, Privacy Policy</a> and <a href="#0">Fees</a></label>
+                                    <label htmlFor="bal">I agree to the <a href="#0">Terms, Privacy Policy</a> and <a href="#0">Fees</a></label>
                                 </div>
                                 {!checkUser && <p style={{color:"red",margin:"0",padding:"0",width:"100%", textAlign:"left", paddingLeft:"10px"}}>{errorText}</p>}
-                                <div className="form-group text-center" onClick={handleClick}>
-                                    <input type="submit" value="Sign Up" />
+                                <div className="form-group text-center" >
+                                    <input type="submit" value="Sign Up" onClick={handleClick}/>
                                 </div>
                             </form>
                             <div className="option">
