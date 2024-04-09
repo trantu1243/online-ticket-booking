@@ -1,0 +1,72 @@
+.admin-container {
+    display: inline-flex; /* or inline-flex */
+    flex-direction: row;
+    width: 100%;
+  }
+
+.app-main{
+    flex-grow: 6;
+    background-color: #f8f2ec;
+}
+
+#kt_app_root{
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f8f2ec;
+}
+.app-sidebar{
+    flex-grow: 2;
+    background-color: #f8f2ec;
+
+}
+
+.app-root{
+    color: rgb(17, 17, 17);
+
+}
+
+.menu-link{
+    color: rgb(17, 17, 17);
+    font-weight: bolder;
+    margin: 5px;
+    padding: 10px 30px;
+    width: 200px;
+    border-radius: 15px;
+}
+
+.menu-link:hover{
+    background-color: #e9ded3;
+}
+
+.flex-column-fluid{
+    background-color: #fff;
+    margin: 30px;
+    border-radius: 30px;
+}
+
+.page-heading-h1{
+    font-size: 1.5em;
+    padding: 0;
+}
+
+.page-title-admin{
+    margin: 0;
+}
+
+.app-header{
+    background-color: #f8f2ec;
+}
+
+.fw-bold{
+    color: #000;
+    font-weight: bolder;
+    font-size: 1.2em;
+}
+
+.admin-active{
+    background-color: #e9ded3;
+}
+
+.form-select-solid{
+    color: #383838;
+}

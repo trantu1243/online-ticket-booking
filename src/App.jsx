@@ -14,6 +14,21 @@ import MovieCheckout from './views/portal/movieCheckout/movieCheckout';
 import PortalLayout from './layouts/portal';
 import AuthLayout from './layouts/auth';
 
+import AdminLayout from './layouts/admin/admin';
+import AdminDashboard from './views/admin/dashboard';
+import AddMovie from './views/admin/addMovie';
+import AddTheatre from './views/admin/addTheatre';
+import AdminSignIn from './views/auth/signIn/adminSignIn';
+
+import TheatreLayout from './layouts/theatre/theatre';
+import Home from './views/theatre/home';
+import TheatreAddMovie from './views/theatre/theatreAddMovie';
+import ViewMovie from './views/theatre/viewMovie';
+import TodayShow from './views/theatre/todayShow';
+import AddShow from './views/theatre/addShow';
+import AddScreen from './views/theatre/addScreen';
+import TheatreSignIn from './views/auth/signIn/theatreSignIn';
+
 function App() {
     useEffect(() => {
         const scriptFiles = [
@@ -70,11 +85,26 @@ function App() {
                 <Route path='auth' element={<AuthLayout />}>
                     <Route path='sign-up' element={<SignUp />} />
                     <Route path='sign-in' element={<SignIn />} />
-                    <Route path='/auth' element={<Navigate to='/auth/sign-in' replace/>} />
+                    <Route path='admin/sign-in' element={<AdminSignIn/>} />
+                    <Route path='theatre/sign-in' element={<TheatreSignIn />} />
+                    <Route path='/auth' element={<Navigate to='/auth/sign-in' replace/>} />      
+                </Route>
+                <Route path='admin' element={<AdminLayout />}>
+                  <Route path='dashboard' element={<AdminDashboard />}/>
+                  <Route path='add-movie' element={<AddMovie />} />
+                  <Route path='add-theatre' element={<AddTheatre />} />      
+                </Route>
+                <Route path="theatre" element={<TheatreLayout />}>
+                  <Route path='home' element={<Home />}/>
+                  <Route path='add-movie' element={<TheatreAddMovie />} />
+                  <Route path='view-movie' element={<ViewMovie />} />
+                  <Route path='today-show' element={<TodayShow />} />
+                  <Route path='add-show' element={<AddShow />} />
+                  <Route path='add-screen' element={<AddScreen />} />
                 </Route>
                 <Route path='/' element={<Navigate to='/portal/dashboard' replace/>} />
             </Routes>
-        </Provider>
+        </Provider> 
     );
 }
 
