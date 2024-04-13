@@ -25,29 +25,29 @@ function MovieListDisplay(){
         getData();
     },[getData]);
     return (
-        <section class="movie-section padding-top padding-bottom">
-        <div class="container">
-            <div class="row flex-wrap-reverse justify-content-center">
+        <section className="movie-section padding-top padding-bottom">
+        <div className="container">
+            <div className="row flex-wrap-reverse justify-content-center">
                 {/* <MlSidebar /> */}
-                <div class="col-lg-9 mb-50 mb-lg-0">
-                    <div class="filter-tab tab">
-                        <div class="tab-area">
-                            <div class="tab-item active">
-                                <div class="movie-area mb-10">
+                <div className="col-lg-9 mb-50 mb-lg-0">
+                    <div className="filter-tab tab">
+                        <div className="tab-area">
+                            <div className="tab-item active">
+                                <div className="movie-area mb-10">
                                     {movieList.map((item, index)=>{
                                         return <MovieListCard key={index} id={index} movie={item} />
                                     })}
                                 </div>
                             </div>
                         </div>
-                        <div class="pagination-area text-center">
-                            <a href="#0"><i class="fas fa-angle-double-left"></i><span>Prev</span></a>
-                            <a href="#0">1</a>
-                            <a href="#0">2</a>
-                            <a href="#0" class="active">3</a>
-                            <a href="#0">4</a>
-                            <a href="#0">5</a>
-                            <a href="#0"><span>Next</span><i class="fas fa-angle-double-right"></i></a>
+                        <div className="pagination-area text-center">
+                            <a href="#0" onClick={(event)=>{event.preventDefault()}}><i className="fas fa-angle-double-left"></i><span>Prev</span></a>
+                            <a href="#0" onClick={(event)=>{event.preventDefault()}}>1</a>
+                            <a href="#0" onClick={(event)=>{event.preventDefault()}}>2</a>
+                            <a href="#0" onClick={(event)=>{event.preventDefault()}} className="active">3</a>
+                            <a href="#0" onClick={(event)=>{event.preventDefault()}}>4</a>
+                            <a href="#0" onClick={(event)=>{event.preventDefault()}}>5</a>
+                            <a href="#0" onClick={(event)=>{event.preventDefault()}}><span>Next</span><i className="fas fa-angle-double-right"></i></a>
                         </div>
                     </div>
                 </div>

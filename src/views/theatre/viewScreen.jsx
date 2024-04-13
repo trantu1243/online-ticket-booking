@@ -1,29 +1,33 @@
 import React, {useCallback, useEffect, useState} from "react";
 import { useSelector } from "react-redux";
+import EditScreen from "./edit/editScreen";
 
 import Header from "../../components/header";
 import { SERVER_URL } from "../../variables/variable";
-import EditMovie from "./edit/editMovie";
 
-function Home(){
-    const [movieList, setMovieList] = useState([]);
+function ViewScreen(){
+    const [screenList, setScreenList] = useState([]);
     const [edit, setEdit] = useState(null);
     const [checkEdit, setCheckEdit] = useState(false);
     const login = useSelector(state => state.theatreAuth);
     const getData = useCallback(async()=>{
         try{
-            const response = await fetch(`${SERVER_URL}/movie-list.php`);
+            const response = await fetch(`${SERVER_URL}/theatre/screen.php`, {
+                headers:{
+                    'Authorization': login.theatreToken
+                }
+            });
             const res = await response.json();
             const data = JSON.parse(res.body);
             
             if (data.message === 'Ok'){
                 console.log(data);
-                setMovieList(data.movies)
+                setScreenList(data.screen)
             }
         }catch(e){
             console.log(e);
         }
-    },[]);
+    },[login]);
     useEffect(()=>{
         getData();
     },[getData]);
@@ -35,7 +39,7 @@ function Home(){
             formData.append('id', id);
             // const token = localStorage.getItem('theatreToken');
             // console.log(login.theatreToken);
-            const response = await fetch(`${SERVER_URL}/theatre/delete-movie.php`, {
+            const response = await fetch(`${SERVER_URL}/theatre/delete-screen.php`, {
                 method: 'POST',
                 headers: {
                     'Authorization': login.theatreToken
@@ -63,7 +67,7 @@ function Home(){
     return (
         <div className="app-main flex-column flex-row-fluid" id="kt_app_main">
             <div className="d-flex flex-column flex-column-fluid">
-                <Header title="Movies"/>
+                <Header title="Screens"/>
                 <div id="kt_app_content" className="app-content flex-column-fluid">
                     <div id="kt_app_content_container" className="app-container container-fluid">
                         <div className="card card-flush">
@@ -74,29 +78,21 @@ function Home(){
                                         <tr className="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
                                             <th className="text-end min-w-100px">ID</th>
                                             <th className="text-end min-w-100px">Name</th>
-                                            <th className="text-end min-w-70px">Genre</th>
-                                            <th className="text-end min-w-100px">Release Date</th>
-                                            <th className="text-end min-w-100px">Duration</th>
+                                            <th className="text-end min-w-70px">Charge</th>
                                             <th className="text-end min-w-70px">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody className="fw-semibold text-gray-600">
-                                        {movieList.map((item, index)=>{
+                                        {screenList.map((item, index)=>{
                                             return <tr key={index}>
                                             <td className="text-end pe-0">
-                                                <span className="text-gray-800">{item.movieID}</span>
+                                                <span className="text-gray-800">{item.screenId}</span>
                                             </td>
                                             <td className="text-end pe-0">
-                                                <span className="text-gray-800">{item.name}</span>
+                                                <span className="text-gray-800">{item.screenName}</span>
                                             </td>
                                             <td className="text-end pe-0">
-                                                <span className="text-gray-800">{item.genre}</span>
-                                            </td>
-                                            <td className="text-end pe-0">
-                                                <span className="text-gray-800">{item.releaseDate}</span>
-                                            </td>
-                                            <td className="text-end pe-0">
-                                                <span className="text-gray-800">{item.duration}</span>
+                                                <span className="text-gray-800">{item.charge}</span>
                                             </td>
                                             <td className="text-end">
                                                 <a href="#0"
@@ -109,7 +105,7 @@ function Home(){
                                                 <a href="#0"
                                                     onClick={(e)=>{
                                                         e.preventDefault();
-                                                        handleDelete(item.movieID);
+                                                        handleDelete(item.screenId);
                                                     }}
                                                     className="btn btn-sm btn-danger btn-flex btn-center btn-active-light-primary" >Delete
                                                 </a>
@@ -125,10 +121,10 @@ function Home(){
 
              
                 </div>
-                {checkEdit && <EditMovie movie={edit} cancel={setCheckEdit}/>}
+                {checkEdit && <EditScreen screen={edit} cancel={setCheckEdit}/>}
             </div>
         </div>
     )
 }
 
-export default Home
+export default ViewScreen

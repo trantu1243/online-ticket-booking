@@ -6,13 +6,13 @@ function Sidebar(){
             <div className="widget-1 widget-tags">
                 <ul>
                     <li>
-                        <a href="#0">2D</a>
+                        <a href="#0" onClick={(e)=>{e.preventDefault()}}>2D</a>
                     </li>
                     <li>
-                        <a href="#0">imax 2D</a>
+                        <a href="#0" onClick={(e)=>{e.preventDefault()}}>imax 2D</a>
                     </li>
                     <li>
-                        <a href="#0">4DX</a>
+                        <a href="#0" onClick={(e)=>{e.preventDefault()}}>4DX</a>
                     </li>
                 </ul>
             </div>
@@ -25,7 +25,7 @@ function Sidebar(){
                         </div>
                         <div className="content">
                             <h6>
-                                <a href="#0">Amazon Pay Cashback Offer</a>
+                                <a href="#0" onClick={(e)=>{e.preventDefault()}}>Amazon Pay Cashback Offer</a>
                             </h6>
                             <p>Win Cashback Upto Rs 300*</p>
                         </div>
@@ -36,7 +36,7 @@ function Sidebar(){
                         </div>
                         <div className="content">
                             <h6>
-                                <a href="#0">PayPal Offer</a>
+                                <a href="#0" onClick={(e)=>{e.preventDefault()}}>PayPal Offer</a>
                             </h6>
                             <p>Transact first time with Paypal and
                                 get 100% cashback up to Rs. 500</p>
@@ -48,7 +48,7 @@ function Sidebar(){
                         </div>
                         <div className="content">
                             <h6>
-                                <a href="#0">HDFC Bank Offer</a>
+                                <a href="#0" onClick={(e)=>{e.preventDefault()}}>HDFC Bank Offer</a>
                             </h6>
                             <p>Get 15% discount up to INR 100* 
                                 and INR 50* off on F&B T&C apply</p>

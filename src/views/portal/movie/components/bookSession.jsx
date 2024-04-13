@@ -1,6 +1,31 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom'
+import { useSelector } from "react-redux";
+import { SERVER_URL } from "../../../../variables/variable";
 
 function BookSection(props){
+    const navigate = useNavigate();
+    const token = useSelector(state => state.auth.token);
+
+    async function handleClick(e){
+        e.preventDefault();
+        const response = await fetch(`${SERVER_URL}/auth.php`, {
+            headers: {
+                'Authorization': token,
+            },
+        });
+        const res = await response.json();
+        console.log(res);
+        const data = JSON.parse(res.body);
+        console.log(data);
+        if (data.message === 'Ok'){
+            navigate(`/portal/movie/ticket-plan/${props.movieInfo.movieID}`);
+            window.location.reload();
+        } else {
+            navigate('/auth/sign-in');
+            window.location.reload();
+        }
+    }
     return (
         <section className="book-section bg-one">
             <div className="container">
@@ -19,7 +44,7 @@ function BookSection(props){
                         </div>
                         
                     </div>
-                    <a href="/portal/movie/ticket-plan" className="custom-button">book tickets</a>
+                    <a href="/portal/movie/ticket-plan" className="custom-button" onClick={handleClick}>book tickets</a>
                 </div>
             </div>
         </section>

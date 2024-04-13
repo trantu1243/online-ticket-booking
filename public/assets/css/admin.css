@@ -70,3 +70,21 @@
 .form-select-solid{
     color: #383838;
 }
+
+.ticket-search-form .form-group input[type="submit"] {
+    background-image: -webkit-linear-gradient(169deg, #5560ff 17%, #aa52a1 63%, #ff4343 100%);
+    -webkit-transition: all ease 0.3s;
+    transition: all ease 0.3s;
+    border-radius: 30px;
+    width: auto;
+    padding: 0 30px;
+    height: 50px;
+    text-transform: uppercase;
+    margin: 0 auto;
+    border: none;
+    border-bottom: 1px solid #23334f;
+}
+
+.color-option{
+    color: #000;
+}

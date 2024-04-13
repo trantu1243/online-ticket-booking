@@ -1,57 +1,116 @@
-import React from "react";
+import React, {useEffect, useState, useCallback} from "react";
+import { useParams } from 'react-router-dom';
+import ScheduleRow from "./Container/scheduleRow";
+import { SERVER_URL } from "../../../../variables/variable";
 
-function BookSectionTp(props){
+function BookSectionTp(){
+    const { id } = useParams();
+    const [cityList, setCityList] = useState([]);
+    const [dateList, setDateList] = useState([]);
+    const [theaterList, setTheaterList] = useState([]);
+    const [screenList, setScreenList] = useState([]);
+    const [city, setCity] = useState('');
+    const [date, setDate] = useState('');
+    const [theater, setTheater] = useState('');
+
+    const getData = useCallback(async (city, date, theater)=>{
+        try{
+            const token = localStorage.getItem('token');
+            console.log(token);
+            const response = await fetch(`${SERVER_URL}/ticket-plan.php?movieID=${id}&state=${city}&date=${date}&theaterId=${theater}`, {
+                headers: {
+                    'Authorization': token
+                }
+            });
+            const res = await response.json();
+            const data = JSON.parse(res.body);
+            console.log(data);
+            if (data.message === 'Ok'){
+                if (data.city) {
+                    setCityList(data.city);
+                    setDate(''); setDateList([]);
+                    setTheater(''); setTheaterList([]);
+                    setScreenList([])
+                } else if (data.date) {
+                    setDateList(data.date);
+                    setTheater(''); setTheaterList([]);
+                    setScreenList([]);
+                } else if (data.theater) {
+                    setTheaterList(data.theater);
+                    setScreenList([]);
+                } else if (data.screen) setScreenList(data.screen);
+            }
+        }
+        catch(e) {
+            console.log(e);
+        }
+    },[id]);
+
+    useEffect(()=>{
+        getData(city,date,theater);
+    }, [getData, city, date, theater]);
+
     return (
-        <section class="book-section bg-one">
-        <div class="container">
-            <form class="ticket-search-form two">
-                <div class="form-group">
-                    <div class="thumb">
-                        <img src="/assets/images/ticket/city.png" alt="ticket"/>
+    <>
+        <section className="book-section bg-one">
+        <div className="container">
+            <form className="ticket-search-form two">
+                <div className="form-group">
+                    <div className="thumb">
+                        <img src="/assets/images/ticket/city.png" alt="ticket" />
                     </div>
-                    <span class="type">city</span>
-                    <select class="select-bar">
-                        {props.plan.city.map((item)=>{
-                            return <option value={item}>{item}</option>
+                    <span className="type">city</span>
+                    <select className="color-option" value={city} onChange={(e)=>setCity(e.target.value)}>
+                        <option className="color-option" value="">Select city</option>
+                        {cityList.map((item, index)=>{
+                            return <option key={index} value={item.state} className="color-option">{item.state}</option>
                         })}
                     </select>
                 </div>
-                <div class="form-group">
-                    <div class="thumb">
+                <div className="form-group">
+                    <div className="thumb">
                         <img src="/assets/images/ticket/date.png" alt="ticket"/>
                     </div>
-                    <span class="type">date</span>
-                    <select class="select-bar">
-                        {props.plan.date.map((item)=>{
-                            return <option value={item}>{item}</option>
+                    <span className="type">date</span>
+                    <select className="color-option" value={date} onChange={(e)=>setDate(e.target.value)}>
+                        <option className="color-option" value="">Select date</option>
+                        {dateList.map((item, index)=>{
+                            return <option key={index} value={item.showDate} className="color-option">{item.showDate}</option>
                         })}
                     </select>
                 </div>
-                <div class="form-group">
-                    <div class="thumb">
+                <div className="form-group">
+                    <div className="thumb">
                         <img src="/assets/images/ticket/cinema.png" alt="ticket"/>
                     </div>
-                    <span class="type">cinema</span>
-                    <select class="select-bar">
-                        {props.plan.cinema.map((item)=>{
-                            return <option value={item}>{item}</option>
+                    <span className="type">cinema</span>
+                    <select className="color-option" value={theater} onChange={(e)=>setTheater(e.target.value)}>
+                        <option className="color-option" value="">Select theater</option>
+                        {theaterList.map((item, index)=>{
+                            return <option key={index} value={item.theaterID} className="color-option">{item.name}</option>
                         })}
                     </select>
+                    
                 </div>
-                <div class="form-group">
-                    <div class="thumb">
-                        <img src="/assets/images/ticket/exp.png" alt="ticket"/>
-                    </div>
-                    <span class="type">Experience</span>
-                    <select class="select-bar">
-                        {props.plan.experience.map((item)=>{
-                            return <option value={item}>{item}</option>
-                        })}
-                    </select>
-                </div>
+              
             </form>
         </div>
     </section>
+    <div className="ticket-plan-section padding-bottom padding-top">
+        <div className="container">
+            <div className="row justify-content-center">
+                <div className="col-lg-9 mb-5 mb-lg-0">
+                    <ul className="seat-plan-wrapper bg-five">
+                        {screenList.map((item, index)=>{
+                            return <ScheduleRow key={index} screen={item} movieId={id} city={city} date={date} theater={theater} />
+                        })}
+                    </ul>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+    </>
     )
 }
 

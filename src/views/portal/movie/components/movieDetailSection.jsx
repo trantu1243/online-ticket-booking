@@ -5,39 +5,39 @@ import Sidebar from "./Sidebar";
 
 function MovieDetailSection(props){
     return (
-        <section class="movie-details-section padding-top padding-bottom">
-        <div class="container">
-            <div class="row justify-content-center flex-wrap-reverse mb--50">
+        <section className="movie-details-section padding-top padding-bottom">
+        <div className="container">
+            <div className="row justify-content-center flex-wrap-reverse mb--50">
                 <Sidebar />
-                <div class="col-lg-9 mb-50">
-                    <div class="movie-details">
-                        <h3 class="title">photos</h3>
-                        <div class="details-photos owl-carousel">        
+                <div className="col-lg-9 mb-50">
+                    <div className="movie-details">
+                        <h3 className="title">photos</h3>
+                        <div className="details-photos owl-carousel">        
                             <a href={props.movieInfo.image} className="img-pop">
                                 <img src={props.movieInfo.image} alt="movie"/>
                             </a>
                         </div>
-                        <div class="tab summery-review">
-                            <ul class="tab-menu">
-                                <li class="active">
+                        <div className="tab summery-review">
+                            <ul className="tab-menu">
+                                <li className="active">
                                     summery
                                 </li>
                             </ul>
-                            <div class="tab-area">
-                                <div class="tab-item active">
-                                    <div class="item">
-                                        <h5 class="sub-title">Description</h5>
+                            <div className="tab-area">
+                                <div className="tab-item active">
+                                    <div className="item">
+                                        <h5 className="sub-title">Description</h5>
                                         <p>{props.movieInfo.description}</p>
                                     </div>
-                                    <div class="item">
-                                        <div class="header">
-                                            <h5 class="sub-title">cast</h5>
-                                            <div class="navigation">
-                                                <div class="cast-prev"><i class="flaticon-double-right-arrows-angles"></i></div>
-                                                <div class="cast-next"><i class="flaticon-double-right-arrows-angles"></i></div>
+                                    <div className="item">
+                                        <div className="header">
+                                            <h5 className="sub-title">cast</h5>
+                                            <div className="navigation">
+                                                <div className="cast-prev"><i className="flaticon-double-right-arrows-angles"></i></div>
+                                                <div className="cast-next"><i className="flaticon-double-right-arrows-angles"></i></div>
                                             </div>
                                         </div>
-                                        {/* <div class="casting-slider owl-carousel">
+                                        {/* <div className="casting-slider owl-carousel">
                                             {props.movieInfo.castList.map((item)=>{
                                                 return <CastCard cast={item} />
                                             })}

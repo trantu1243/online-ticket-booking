@@ -8,14 +8,14 @@ function MlSidebar(){
         <div className="col-sm-10 col-md-8 col-lg-3">
             <div className="widget-1 widget-banner">
                 <div className="widget-1-body">
-                    <a href="#0">
+                    <a href="#0" onClick={(event)=>{event.preventDefault()}}>
                         <img src="/assets/images/sidebar/banner/banner01.jpg" alt="banner"/>
                     </a>
                 </div>
             </div>
             <div className="widget-1 widget-check">
                 <div className="widget-header">
-                    <h5 className="m-title">Filter By</h5> <a href="#0" className="clear-check">Clear All</a>
+                    <h5 className="m-title">Filter By</h5> <a href="#0" onClick={(event)=>{event.preventDefault()}} className="clear-check">Clear All</a>
                 </div>
                 <div className="widget-1-body">
                     <h6 className="subtitle">Language</h6>
@@ -39,7 +39,7 @@ function MlSidebar(){
                         })}
                     </div>
                     <div className="add-check-area">
-                        <a href="#0">view more <i className="plus"></i></a>
+                        <a href="#0" onClick={(event)=>{event.preventDefault()}}>view more <i className="plus"></i></a>
                     </div>
                 </div>
             </div>
@@ -54,7 +54,7 @@ function MlSidebar(){
                         })}
                     </div>
                     <div className="add-check-area">
-                        <a href="#0">view more <i class="plus"></i></a>
+                        <a href="#0" onClick={(event)=>{event.preventDefault()}}>view more <i class="plus"></i></a>
                     </div>
                 </div>
             </div>

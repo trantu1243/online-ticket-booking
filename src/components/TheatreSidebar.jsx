@@ -14,7 +14,7 @@ function TheatreSideBar(){
         else if (location.pathname === "/theatre/add-movie") setCheckPath(4);
         else if (location.pathname === "/theatre/add-show") setCheckPath(5);
         else if (location.pathname === "/theatre/add-screen") setCheckPath(6);
-
+        else if (location.pathname === "/theatre/history-booking") setCheckPath(7);
     }, [location]);
     return(
         <div id="kt_app_sidebar" className="app-sidebar flex-column" data-kt-drawer="true" data-kt-drawer-name="app-sidebar" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="250px" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle">
@@ -33,15 +33,23 @@ function TheatreSideBar(){
                             <span className="menu-bullet">
                             
                             </span>
-                            <span className="menu-title">Today Show</span>
+                            <span className="menu-title">View Show</span>
                         </a>
                     </div>
                     <div data-kt-menu-trigger="click" className="menu-item here show menu-accordion">				
-                        <a className={checkPath === 3?"menu-link admin-active":"menu-link"} href="/theatre/view-movie">
+                        <a className={checkPath === 3?"menu-link admin-active":"menu-link"} href="/theatre/view-screen">
                             <span className="menu-bullet">
                             
                             </span>
-                            <span className="menu-title">View Movie</span>
+                            <span className="menu-title">View Screen</span>
+                        </a>
+                    </div>
+                    <div data-kt-menu-trigger="click" className="menu-item here show menu-accordion">				
+                        <a className={checkPath === 7?"menu-link admin-active":"menu-link"} href="/theatre/history-booking">
+                            <span className="menu-bullet">
+                            
+                            </span>
+                            <span className="menu-title">View Booking</span>
                         </a>
                     </div>
                     <div data-kt-menu-trigger="click" className="menu-item here show menu-accordion">				

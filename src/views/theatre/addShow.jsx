@@ -154,7 +154,7 @@ function AddShow(){
                                             <label className="col-lg-4 col-form-label fw-semibold fs-6">Time</label>
                                             <div className="col-lg-8 fv-row">
                                                 <select 
-                                                    name="currnecy" 
+                                                    name="time" 
                                                     value={textInput.time}
                                                     onChange={handleChange}
                                                     aria-label="Select a Currency" 

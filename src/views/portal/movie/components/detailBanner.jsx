@@ -28,10 +28,10 @@ function DetailBanner(props){
                     <div className="details-banner-content offset-lg-3">
                         <h3 className="title">{props.movieInfo.name}</h3>
                         <div className="tags">
-                            <a href="#0">Vietnamese</a>
-                            <a href="#0">English</a>
+                            <a href="#0" onClick={(event)=>{event.preventDefault()}}>Vietnamese</a>
+                            <a href="#0" onClick={(event)=>{event.preventDefault()}}>English</a>
                         </div>
-                        <a href="#0" className="button">{props.movieInfo.genre}</a>
+                        <a href="#0" onClick={(event)=>{event.preventDefault()}} className="button">{props.movieInfo.genre}</a>
                         <div className="social-and-duration">
                             <div className="duration-area">
                                 <div className="item">
@@ -42,11 +42,11 @@ function DetailBanner(props){
                                 </div>
                             </div>
                             <ul className="social-share">
-                                <li><a href="#0"><i className="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#0"><i className="fab fa-twitter"></i></a></li>
-                                <li><a href="#0"><i className="fab fa-pinterest-p"></i></a></li>
-                                <li><a href="#0"><i className="fab fa-linkedin-in"></i></a></li>
-                                <li><a href="#0"><i className="fab fa-google-plus-g"></i></a></li>
+                                <li><a href="#0" onClick={(event)=>{event.preventDefault()}}><i className="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#0" onClick={(event)=>{event.preventDefault()}}><i className="fab fa-twitter"></i></a></li>
+                                <li><a href="#0" onClick={(event)=>{event.preventDefault()}}><i className="fab fa-pinterest-p"></i></a></li>
+                                <li><a href="#0" onClick={(event)=>{event.preventDefault()}}><i className="fab fa-linkedin-in"></i></a></li>
+                                <li><a href="#0" onClick={(event)=>{event.preventDefault()}}><i className="fab fa-google-plus-g"></i></a></li>
                             </ul>
                         </div>
                     </div>

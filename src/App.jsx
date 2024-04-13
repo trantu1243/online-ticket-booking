@@ -23,11 +23,12 @@ import AdminSignIn from './views/auth/signIn/adminSignIn';
 import TheatreLayout from './layouts/theatre/theatre';
 import Home from './views/theatre/home';
 import TheatreAddMovie from './views/theatre/theatreAddMovie';
-import ViewMovie from './views/theatre/viewMovie';
+import ViewScreen from './views/theatre/viewScreen';
 import TodayShow from './views/theatre/todayShow';
 import AddShow from './views/theatre/addShow';
 import AddScreen from './views/theatre/addScreen';
 import TheatreSignIn from './views/auth/signIn/theatreSignIn';
+import HistoryBooking from './views/theatre/historyBooking';
 
 function App() {
     useEffect(() => {
@@ -47,7 +48,9 @@ function App() {
           '/assets/js/nice-select.js',
           '/assets/js/main.js',
         ];
-    
+        try{
+
+   
         scriptFiles.forEach((file) => {
           const existingScript = document.getElementById(`script-${file}`);
           if (existingScript) {
@@ -68,17 +71,21 @@ function App() {
             }
           });
         };
+
+      }
+      catch(e){}
     
       }, []);
     return (
+
         <Provider store={store}>
             <Routes>
                 <Route path='portal' element={<PortalLayout/>}>
                     <Route path='dashboard' element={<Dashboard />}/>
                     <Route path='movie/:id' element={<Movie/>}/>
-                    <Route path='movie/ticket-plan' element={<TicketPlan />} />
-                    <Route path='movie/movie-seat' element={<MovieSeat />} />
-                    <Route path='movie/movie-checkout' element={<MovieCheckout />} />
+                    <Route path='movie/ticket-plan/:id' element={<TicketPlan />} />
+                    <Route path='movie/movie-seat/:id' element={<MovieSeat />} />
+                    <Route path='movie/movie-checkout/:id' element={<MovieCheckout />} />
                     <Route path='movie-list' element={<MovieList />} />
                     <Route path='/portal' element={<Navigate to='/portal/dashboard' replace/>} />
                 </Route>
@@ -92,19 +99,23 @@ function App() {
                 <Route path='admin' element={<AdminLayout />}>
                   <Route path='dashboard' element={<AdminDashboard />}/>
                   <Route path='add-movie' element={<AddMovie />} />
-                  <Route path='add-theatre' element={<AddTheatre />} />      
+                  <Route path='add-theatre' element={<AddTheatre />} />   
+                  <Route path='/admin' element={<Navigate to='/admin/dashboard' replace/>} />   
                 </Route>
                 <Route path="theatre" element={<TheatreLayout />}>
                   <Route path='home' element={<Home />}/>
                   <Route path='add-movie' element={<TheatreAddMovie />} />
-                  <Route path='view-movie' element={<ViewMovie />} />
+                  <Route path='view-screen' element={<ViewScreen />} />
                   <Route path='today-show' element={<TodayShow />} />
                   <Route path='add-show' element={<AddShow />} />
                   <Route path='add-screen' element={<AddScreen />} />
+                  <Route path='history-booking' element={<HistoryBooking />} />
+                  <Route path='/theatre' element={<Navigate to='/theatre/home' replace/>} />
                 </Route>
                 <Route path='/' element={<Navigate to='/portal/dashboard' replace/>} />
             </Routes>
         </Provider> 
+
     );
 }
 
