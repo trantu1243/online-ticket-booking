@@ -13,6 +13,16 @@ import MovieList from './views/portal/movieList/movieList';
 import MovieCheckout from './views/portal/movieCheckout/movieCheckout';
 import PortalLayout from './layouts/portal';
 import AuthLayout from './layouts/auth';
+import HistoryTicket from './views/portal/historyBooking';
+import Newfeed from './views/portal/newfeed';
+import Newfeed01 from './views/portal/newfeed/item/newfeed01';
+import Newfeed02 from './views/portal/newfeed/item/newfeed02';
+import Newfeed03 from './views/portal/newfeed/item/newfeed03';
+import Newfeed04 from './views/portal/newfeed/item/newfeed04';
+import Newfeed05 from './views/portal/newfeed/item/newfeed05';
+import Newfeed06 from './views/portal/newfeed/item/newfeed06';
+import Newfeed07 from './views/portal/newfeed/item/newfeed07';
+import UserInfo from './views/portal/userInfo';
 
 import AdminLayout from './layouts/admin/admin';
 import AdminDashboard from './views/admin/dashboard';
@@ -87,6 +97,16 @@ function App() {
                     <Route path='movie/movie-seat/:id' element={<MovieSeat />} />
                     <Route path='movie/movie-checkout/:id' element={<MovieCheckout />} />
                     <Route path='movie-list' element={<MovieList />} />
+                    <Route path='history-booking' element={<HistoryTicket />} />
+                    <Route path='newfeed' element={<Newfeed />} />
+                    <Route path='huong-dan-dang-nhap-tai-khoan-beta-cinemas' element={<Newfeed01 />} />
+                    <Route path='beta-cinemas-ung-van-khiem-sieu-pham-trong-thoi-gian-toi' element={<Newfeed02 />} />
+                    <Route path='thanh-toan-shopeepay-giam-ngay-5' element={<Newfeed03 />} />
+                    <Route path='chi-9-000d-ve-phim-khi-dat-qua-zalopay' element={<Newfeed04 />} />
+                    <Route path='beta-ve-re-momo-mua-lien' element={<Newfeed05 />} />
+                    <Route path='thanh-vien-beta-dong-gia-45k' element={<Newfeed06 />} />
+                    <Route path='thu-3-vui-ve' element={<Newfeed07 />} />
+                    <Route path='user-information' element={<UserInfo />} />
                     <Route path='/portal' element={<Navigate to='/portal/dashboard' replace/>} />
                 </Route>
                 <Route path='auth' element={<AuthLayout />}>

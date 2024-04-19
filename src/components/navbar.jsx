@@ -13,6 +13,7 @@ function Navbar(){
     useEffect(()=>{
         if(location.pathname==='/portal/dashboard') setActive(1);
         else if(location.pathname==='/portal/movie-list') setActive(2);
+        else if(location.pathname==='/portal/newfeed') setActive(3);
         else setActive(0);      
     }, [location]);
 
@@ -57,14 +58,17 @@ function Navbar(){
                             <a href="/portal/movie-list" className={active===2 ? "active":""}>movies</a>
                         </li>
                         <li>
-                            <a href="#0">contact</a>
+                            <a href="/portal/newfeed" className={active===3 ? "active":""}>news</a>
                         </li>
                         <li className="menu-item-has-children open">
                             <a href="#0">pages</a>
                             {
                             checkSignIn ? <ul className="submenu">
                                 <li>
-                                    <a href="#0" onClick={(e)=>{e.preventDefault()}}>{username}</a>
+                                    <a href="/portal/user-information" >{username}</a>
+                                </li>
+                                <li>
+                                    <a href="/portal/history-booking">History booking</a>
                                 </li>
                                 <li>
                                     <a href="#0" onClick={handleLogOut}>Log out</a>
@@ -81,7 +85,7 @@ function Navbar(){
                         </li>
                         <li className="header-button pr-0">
                             {checkSignIn?
-                            <a href="/auth/sign-up" onClick={(e)=>{e.preventDefault()}}>{username}</a>: 
+                            <a href="/portal/user-information">{username}</a>: 
                             <a href="/auth/sign-up">Join us</a>
                         }
                             
