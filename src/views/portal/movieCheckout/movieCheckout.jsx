@@ -149,12 +149,12 @@ function MovieCheckout(){
                                         <h6 className="subtitle mb-0"><span>Seats</span><span>{localStorage.getItem('selectedSeats')}</span></h6>
                                     </li>
                                     <li>
-                                        <h6 className="subtitle mb-0"><span>Tickets  Price</span><span>{info.charge * seatList.length}vnd</span></h6>
+                                        <h6 className="subtitle mb-0"><span>Tickets  Price</span><span>{(info.charge * seatList.length).toLocaleString()}vnd</span></h6>
                                     </li>
                                 </ul>
                             </div>
                             <div className="proceed-area  text-center">
-                                <h6 className="subtitle"><span>Amount Payable</span><span>{info.charge * seatList.length}vnd</span></h6>
+                                <h6 className="subtitle"><span>Amount Payable</span><span>{(info.charge * seatList.length).toLocaleString()}vnd</span></h6>
                             </div>
                         </div>
                     </div>

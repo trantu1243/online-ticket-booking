@@ -133,7 +133,7 @@ function MovieSeat(){
                         </div>
                         <div className="book-item">
                             <span>total price</span>
-                            <h3 className="title">{price * selectSeatList.length + "vnd"}</h3>
+                            <h3 className="title">{(price * selectSeatList.length).toLocaleString() + "vnd"}</h3>
                         </div>
                         <div className="book-item">
                             <a href="/portal/movie/movie-checkout" className="custom-button" onClick={handleClick}>proceed</a>

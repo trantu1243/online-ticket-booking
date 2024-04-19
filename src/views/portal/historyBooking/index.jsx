@@ -74,7 +74,7 @@ function HistoryTicket(){
                                                     </th>
                                                     <th style={{width: '10%'}}>{item.seats}
                                                     </th>
-                                                    <th style={{width: '10%'}}>{item.charge}
+                                                    <th style={{width: '10%'}}>{item.charge.toLocaleString()}
                                                     </th>
                                                 </tr>
                                             )               
