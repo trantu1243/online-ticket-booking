@@ -26,7 +26,7 @@ function Newfeed(){
                                     </div>
                                 </a>
                                 <div className="padding-15">
-                                    <h5><a style={{color: '#000}'}} href="/beta-cinemas-ung-van-khiem-sieu-pham-trong-thoi-gian-toi.htm">Beta Cinemas Ung Văn Khiêm (Siêu phẩm trong thời gian tới)<span style={{fontSize :'14px',color:'#03599d'}}></span></a></h5>
+                                    <h5><a style={{color: '#000}'}} href="/portal/beta-cinemas-ung-van-khiem-sieu-pham-trong-thoi-gian-toi.htm">Beta Cinemas Ung Văn Khiêm (Siêu phẩm trong thời gian tới)<span style={{fontSize :'14px',color:'#03599d'}}></span></a></h5>
                                     <p className="text-justify">
                                         
                                     </p>
