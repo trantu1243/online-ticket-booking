@@ -29,14 +29,7 @@ function Navbar(){
     }
     return (
         <>
-        <div className="preloader">
-        <div className="preloader-inner">
-            <div className="preloader-icon">
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </div>
+       
     
     <div className="overlay"></div>
     <a href="#0" className="scrollToTop">
