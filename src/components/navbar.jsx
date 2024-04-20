@@ -65,7 +65,7 @@ function Navbar(){
                             {
                             checkSignIn ? <ul className="submenu">
                                 <li>
-                                    <a href="/portal/user-information" >{username}</a>
+                                    <a href="/portal/user-information" >User information</a>
                                 </li>
                                 <li>
                                     <a href="/portal/history-booking">History booking</a>
