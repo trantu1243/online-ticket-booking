@@ -43,7 +43,7 @@ function MovieListDisplay(){
     },[date]);
     useEffect(()=>{
         getData();
-    },[getData]);
+    },[getData, date]);
 
     useEffect(()=>{
         const arr = [];
