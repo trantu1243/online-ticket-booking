@@ -349,3 +349,7 @@
   .info-area .account-form .form-group.checkgroup select:checked::after {
     content: "\f00c";
   }
+  
+  .select-tag{
+    color: #000;
+  }

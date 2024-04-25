@@ -60,8 +60,8 @@ function BookSectionTp(){
                         <img src="/assets/images/ticket/city.png" alt="ticket" />
                     </div>
                     <span className="type">city</span>
-                    <select className="color-option" value={city} onChange={(e)=>setCity(e.target.value)}>
-                        <option className="color-option" value="">Select city</option>
+                    <select className="select-tag" value={city} onChange={(e)=>setCity(e.target.value)}>
+                        <option className="option-tag" value="">Select city</option>
                         {cityList.map((item, index)=>{
                             return <option key={index} value={item.state} className="color-option">{item.state}</option>
                         })}
@@ -72,8 +72,8 @@ function BookSectionTp(){
                         <img src="/assets/images/ticket/date.png" alt="ticket"/>
                     </div>
                     <span className="type">date</span>
-                    <select className="color-option" value={date} onChange={(e)=>setDate(e.target.value)}>
-                        <option className="color-option" value="">Select date</option>
+                    <select className="select-tag" value={date} onChange={(e)=>setDate(e.target.value)}>
+                        <option className="" value="">Select date</option>
                         {dateList.map((item, index)=>{
                             return <option key={index} value={item.showDate} className="color-option">{item.showDate}</option>
                         })}
@@ -84,8 +84,8 @@ function BookSectionTp(){
                         <img src="/assets/images/ticket/cinema.png" alt="ticket"/>
                     </div>
                     <span className="type">cinema</span>
-                    <select className="color-option" value={theater} onChange={(e)=>setTheater(e.target.value)}>
-                        <option className="color-option" value="">Select theater</option>
+                    <select className="select-tag" value={theater} onChange={(e)=>setTheater(e.target.value)}>
+                        <option className="" value="">Select theater</option>
                         {theaterList.map((item, index)=>{
                             return <option key={index} value={item.theaterID} className="color-option">{item.name}</option>
                         })}

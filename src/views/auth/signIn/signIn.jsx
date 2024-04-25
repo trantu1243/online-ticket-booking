@@ -78,6 +78,7 @@ function SignIn(){
                                     value={textInput.username} 
                                     onChange={handleChange} 
                                     required    
+                                    autoComplete="off"
                                 />
                             </div>
                             <div className="form-group">
