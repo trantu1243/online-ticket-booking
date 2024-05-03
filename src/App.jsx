@@ -39,6 +39,7 @@ import AddShow from './views/theatre/addShow';
 import AddScreen from './views/theatre/addScreen';
 import TheatreSignIn from './views/auth/signIn/theatreSignIn';
 import HistoryBooking from './views/theatre/historyBooking';
+import RevenueStatistic from './views/theatre/revenue-statistic';
 
 function App() {
     useEffect(() => {
@@ -130,6 +131,7 @@ function App() {
                   <Route path='add-show' element={<AddShow />} />
                   <Route path='add-screen' element={<AddScreen />} />
                   <Route path='history-booking' element={<HistoryBooking />} />
+                  <Route path='revenue-statistic' element={<RevenueStatistic />} />
                   <Route path='/theatre' element={<Navigate to='/theatre/home' replace/>} />
                 </Route>
                 <Route path='/' element={<Navigate to='/portal/dashboard' replace/>} />

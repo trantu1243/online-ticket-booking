@@ -15,6 +15,7 @@ function TheatreSideBar(){
         else if (location.pathname === "/theatre/add-show") setCheckPath(5);
         else if (location.pathname === "/theatre/add-screen") setCheckPath(6);
         else if (location.pathname === "/theatre/history-booking") setCheckPath(7);
+        else if (location.pathname === "/theatre/revenue-statistic") setCheckPath(8);
     }, [location]);
     return(
         <div id="kt_app_sidebar" className="app-sidebar flex-column" data-kt-drawer="true" data-kt-drawer-name="app-sidebar" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="250px" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle">
@@ -74,6 +75,14 @@ function TheatreSideBar(){
                             
                             </span>
                             <span className="menu-title">Add Show</span>
+                        </a>
+                    </div>
+                    <div data-kt-menu-trigger="click" className="menu-item here show menu-accordion">				
+                        <a className={checkPath === 8?"menu-link admin-active":"menu-link"} href="/theatre/revenue-statistic">
+                            <span className="menu-bullet">
+                            
+                            </span>
+                            <span className="menu-title">Revenue Statistic</span>
                         </a>
                     </div>
                     <div data-kt-menu-trigger="click" className="menu-item here show menu-accordion">				
