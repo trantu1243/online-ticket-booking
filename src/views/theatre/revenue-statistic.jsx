@@ -6,10 +6,11 @@ import { SERVER_URL } from "../../variables/variable";
 
 function RevenueStatistic(){
     const [revenue, setRevenue] = useState([]);
+    const [seats, setSeats] = useState(0);
+    const [total, setTotal] = useState(0);
     const login = useSelector(state => state.theatreAuth);
     const getData = useCallback(async()=>{
         try{
-            console.log(login.theatreToken);
             const response = await fetch(`${SERVER_URL}/theatre/revenue-statistic.php`, {
                 headers:{
                     'Authorization': login.theatreToken
@@ -30,7 +31,16 @@ function RevenueStatistic(){
         getData();
     },[getData]);
 
-
+    useEffect(()=>{
+        let sum1 = 0;
+        let sum2 = 0;
+        revenue.forEach((item)=>{
+            sum1+=Number(item.totalCharge);
+            sum2+=Number(item.number);
+        })
+        setTotal(sum1);
+        setSeats(sum2);
+    },[revenue])
     
     return (
         <div className="app-main flex-column flex-row-fluid" id="kt_app_main">
@@ -68,7 +78,21 @@ function RevenueStatistic(){
                                             
                                         </tr>
                                         })}
-                                        
+                                        <tr>
+                                            <td className="text-end pe-0 text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+                                                <span className="text-gray-800">Total:</span>
+                                            </td>
+                                            <td className="text-end pe-0">
+                                                <span className="text-gray-800"></span>
+                                            </td>
+                                            <td className="text-end pe-0">
+                                                <span className="text-gray-800">{seats}</span>
+                                            </td>
+                                            <td className="text-end pe-0">
+                                                <span className="text-gray-800">{total.toLocaleString()}</span>
+                                            </td>
+                                            
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>

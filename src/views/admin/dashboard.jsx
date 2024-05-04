@@ -78,6 +78,7 @@ function AdminDashboard(){
                                             <th className="text-end min-w-70px">City</th>
                                             <th className="text-end min-w-100px">Address</th>
                                             <th className="text-end min-w-100px">Username</th>
+                                            <th className="text-end min-w-100px">Revenue</th>
                                             <th className="text-end min-w-70px">Actions</th>
                                         </tr>
                                     </thead>
@@ -98,6 +99,9 @@ function AdminDashboard(){
                                             </td>
                                             <td className="text-end pe-0">
                                                 <span className="text-gray-800">{item.username}</span>
+                                            </td>
+                                            <td className="text-end pe-0">
+                                                <span className="text-gray-800">{Number(item.totalCharge).toLocaleString()}</span>
                                             </td>
                                             <td className="text-end">
                                                 <a href="#0"
